@@ -1,53 +1,125 @@
 import React from 'react';
 
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {StyleSheet, Text, Image, View, ScrollView} from 'react-native';
 
 const App = () => {
   return (
     <>
-      <View style={styles.contenedor}>
-        <View style={styles.caja1}></View>
-        <View style={styles.caja2}></View>
-        <View style={styles.caja3}></View>
-        <View style={styles.caja4}></View>
-      </View>
+      <ScrollView>
+        <View style={{flexDirection: 'row'}}>
+          <Image style={styles.banner} source={require('./img/bg.jpg')} />
+        </View>
+        <View style={styles.contenedor}>
+          <Text style={styles.titulo}>Que hacer en París</Text>
+          <ScrollView horizontal>
+            <Image
+              style={styles.ciudad}
+              source={require('./img/actividad1.jpg')}
+            />
+            <Image
+              style={styles.ciudad}
+              source={require('./img/actividad2.jpg')}
+            />
+            <Image
+              style={styles.ciudad}
+              source={require('./img/actividad3.jpg')}
+            />
+            <Image
+              style={styles.ciudad}
+              source={require('./img/actividad4.jpg')}
+            />
+            <Image
+              style={styles.ciudad}
+              source={require('./img/actividad5.jpg')}
+            />
+          </ScrollView>
+
+          <Text style={styles.titulo}>Los mejores alojamientos en París</Text>
+          <View>
+            <View>
+              <Image
+                style={styles.mejores}
+                source={require('./img/mejores1.jpg')}
+              />
+            </View>
+            <View>
+              <Image
+                style={styles.mejores}
+                source={require('./img/mejores2.jpg')}
+              />
+            </View>
+            <View>
+              <Image
+                style={styles.mejores}
+                source={require('./img/mejores3.jpg')}
+              />
+            </View>
+          </View>
+
+          <Text style={styles.titulo}>Hospedajes en LA</Text>
+          <View style={styles.listado}>
+          <View style={styles.listadoItem}>
+              <Image
+                style={styles.mejores}
+                source={require('./img/hospedaje1.jpg')}
+              />
+            </View>
+            <View style={styles.listadoItem}>
+              <Image
+                style={styles.mejores}
+                source={require('./img/hospedaje2.jpg')}
+              />
+            </View>
+            <View style={styles.listadoItem}>
+              <Image
+                style={styles.mejores}
+                source={require('./img/hospedaje3.jpg')}
+              />
+            </View>
+            <View style={styles.listadoItem}>
+              <Image
+                style={styles.mejores}
+                source={require('./img/hospedaje4.jpg')}
+              />
+            </View>
+          </View>
+        </View>
+      </ScrollView>
     </>
   );
 };
 
 const styles = StyleSheet.create({
+  banner: {
+    height: 250,
+    flex: 1,
+  },
+  titulo: {
+    fontWeight: 'bold',
+    fontSize: 24,
+    marginVertical: 20,
+    color: 'blue',
+  },
   contenedor: {
-    backgroundColor: 'blue',
-    flex: 1,
+    marginHorizontal: 10,
+  },
+  ciudad: {
+    width: 270,
+    height: 250,
+    marginRight: 10,
+  },
+  mejores: {
+    width: '100%',
+    height: 200,
+    marginVertical: 5,
+  },
+  listado:{
     flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between'
   },
-  caja1: {
-    padding: 20,
-    backgroundColor: 'navy',
-    flex: 1,
-  },
-  caja2: {
-    padding: 20,
-    backgroundColor: 'red',
-    flex: 1,
-  },
-  caja3: {
-    padding: 20,
-    backgroundColor: 'yellow',
-    flex: 1,
-  },
-  caja4: {
-    padding: 20,
-    backgroundColor: 'black',
-    flex: 1,
+  listadoItem:{
+    flexBasis: '49%'
   },
 });
 
